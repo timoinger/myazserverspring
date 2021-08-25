@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://myaz.database.windows.net:1433;database=azdb
+    username: ${AZDB_USER}
+    password: ${AZDB_PASS}
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.SQLServer2012Dialect
+
+server:
+  port: 9191
