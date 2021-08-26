@@ -17,7 +17,7 @@ public class MyazApplication {
         SpringApplication.run(com.example.demo.MyazApplication.class, args);
     }
 
-    @GetMapping(value = "/peps")
+    @GetMapping
     public List<Person> getAllPeople() {
         Person p = new Person(0, "ttttest");
         List<Person> list = new ArrayList<Person>();
