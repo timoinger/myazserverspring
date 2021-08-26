@@ -1,8 +1,10 @@
-package com.example.demo.api;
+package com.example.demo;
 
 import com.example.demo.model.Person;
 import com.example.demo.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -11,11 +13,16 @@ import java.util.List;
 
 //CORS Cross-Origin Port 3000 (React), 4200 (Angular), 8080 (Vue)
 
+@SpringBootApplication
 @RequestMapping(value = "/")
 @RestController
 public class PersonController {
 
 	private final PersonService personService;
+
+	public static void main(String[] args) {
+		SpringApplication.run(PersonController.class, args);
+	}
 
 	@Autowired
 	public PersonController(PersonService personService) {
