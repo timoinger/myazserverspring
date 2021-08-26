@@ -13,21 +13,9 @@ import java.util.List;
 @RestController
 public class MyazApplication {
 
-//    private final PersonService personService;
-
     public static void main(String[] args) {
         SpringApplication.run(com.example.demo.MyazApplication.class, args);
     }
-
-//    @Autowired
-//    public MyazApplication(PersonService personService) {
-//        this.personService = personService;
-//    }
-//
-//    @PostMapping("/people")
-//    public void addPerson(@RequestBody Person person) {
-//        personService.addPerson(person);
-//    }
 
     @GetMapping(value = "/peps")
     public List<Person> getAllPeople() {
@@ -35,7 +23,5 @@ public class MyazApplication {
         List<Person> list = new ArrayList<Person>();
         list.add(p);
         return list;
- //       return personService.getAllPeople();
     }
-
 }
