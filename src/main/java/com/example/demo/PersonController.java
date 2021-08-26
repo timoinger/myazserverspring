@@ -14,7 +14,7 @@ import java.util.List;
 //CORS Cross-Origin Port 3000 (React), 4200 (Angular), 8080 (Vue)
 
 @SpringBootApplication
-@RequestMapping(value = "/")
+@RequestMapping(value = "/person")
 @RestController
 public class PersonController {
 
