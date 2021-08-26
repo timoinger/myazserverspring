@@ -10,7 +10,7 @@ import java.util.List;
 
 //CORS Cross-Origin Port 3000 (React), 4200 (Angular), 8080 (Vue)
 
-@RequestMapping(value = "/")
+@RequestMapping
 @RestController
 public class PersonController {
 
@@ -26,31 +26,31 @@ public class PersonController {
 	}
 
 	@PostMapping
-	@CrossOrigin
+//	@CrossOrigin
 	public void addPerson( @RequestBody Person person) {
 		personService.addPerson(person);
 	}
 
 	@GetMapping
-	@CrossOrigin
+//	@CrossOrigin
 	public List<Person> getAllPeople() {
 		return personService.getAllPeople();
 	}
 
 	@GetMapping(path = "{id}")
-	@CrossOrigin
+//	@CrossOrigin
 	public Person getPersonById(@PathVariable("id") Integer id) {
 		return personService.getPersonById(id).orElse(null);
 	}
 
 	@DeleteMapping(path = "{id}")
-	@CrossOrigin
+//	@CrossOrigin
 	public int deletePersonById(@PathVariable("id") Integer id) {
 		return personService.deletePerson(id);
 	}
 
 	@PutMapping(path = "{id}")
-	@CrossOrigin
+//	@CrossOrigin
 	public int updatePersonById(@PathVariable("id") Integer id, @RequestBody Person personToUpdate) {
 		return personService.updatePersonById(id, personToUpdate);
 	}
