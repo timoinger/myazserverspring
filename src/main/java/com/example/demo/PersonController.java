@@ -30,31 +30,31 @@ public class PersonController {
 	}
 
 	@PostMapping
-	@CrossOrigin
+//	@CrossOrigin
 	public void addPerson(@Valid @NotNull @RequestBody Person person) {
 		personService.addPerson(person);
 	}
 
-	@GetMapping
-	@CrossOrigin
+	@GetMapping("/people")
+//	@CrossOrigin
 	public List<Person> getAllPeople() {
 		return personService.getAllPeople();
 	}
 
 	@GetMapping(path = "{id}")
-	@CrossOrigin
+//	@CrossOrigin
 	public Person getPersonById(@PathVariable("id") Integer id) {
 		return personService.getPersonById(id).orElse(null);
 	}
 
 	@DeleteMapping(path = "{id}")
-	@CrossOrigin
+//	@CrossOrigin
 	public int deletePersonById(@PathVariable("id") Integer id) {
 		return personService.deletePerson(id);
 	}
 
 	@PutMapping(path = "{id}")
-	@CrossOrigin
+//	@CrossOrigin
 	public int updatePersonById(@PathVariable("id") Integer id, @Valid @NotNull @RequestBody Person personToUpdate) {
 		return personService.updatePersonById(id, personToUpdate);
 	}
