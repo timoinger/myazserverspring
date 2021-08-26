@@ -29,7 +29,7 @@ public class MyazApplication {
 //        personService.addPerson(person);
 //    }
 
-    @GetMapping
+    @GetMapping("/peps")
     public List<Person> getAllPeople() {
         Person p = new Person(0, "ttttest");
         List<Person> list = new ArrayList<Person>();
