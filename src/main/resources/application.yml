@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:sqlserver://myaz.database.windows.net:1433;database=azdb
+    url: jdbc:sqlserver://myazdbserver.database.windows.net:1433;database=myazdb
     username: ${AZDB_USER}
     password: ${AZDB_PASS}
   jpa:
