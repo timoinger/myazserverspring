@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:sqlserver://myaz.database.windows.net:1433;database=azdb
-    username: $AZDB_USER
-    password: $AZDB_PASS
+    username: ${AZDB_USER}
+    password: ${AZDB_PASS}
   jpa:
     show-sql: true
     hibernate:
@@ -10,4 +10,4 @@ spring:
       dialect: org.hibernate.dialect.SQLServer2012Dialect
 
 server:
-  port: $AZDB_PORT
+  port: 9091
