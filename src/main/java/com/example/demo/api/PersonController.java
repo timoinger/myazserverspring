@@ -1,10 +1,9 @@
-package com.example.demo;
+package com.example.demo.api;
 
 import com.example.demo.model.Person;
 import com.example.demo.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -13,9 +12,9 @@ import java.util.List;
 
 //CORS Cross-Origin Port 3000 (React), 4200 (Angular), 8080 (Vue)
 
-@SpringBootApplication
-@RequestMapping(value = "/")
-@RestController
+//@SpringBootApplication
+//@RequestMapping(value = "/")
+//@RestController
 public class PersonController {
 
 	private final PersonService personService;
@@ -30,31 +29,31 @@ public class PersonController {
 	}
 
 	@PostMapping
-//	@CrossOrigin
+	@CrossOrigin
 	public void addPerson(@Valid @NotNull @RequestBody Person person) {
 		personService.addPerson(person);
 	}
 
-	@GetMapping("/people")
-//	@CrossOrigin
+	@GetMapping
+	@CrossOrigin
 	public List<Person> getAllPeople() {
 		return personService.getAllPeople();
 	}
 
 	@GetMapping(path = "{id}")
-//	@CrossOrigin
+	@CrossOrigin
 	public Person getPersonById(@PathVariable("id") Integer id) {
 		return personService.getPersonById(id).orElse(null);
 	}
 
 	@DeleteMapping(path = "{id}")
-//	@CrossOrigin
+	@CrossOrigin
 	public int deletePersonById(@PathVariable("id") Integer id) {
 		return personService.deletePerson(id);
 	}
 
 	@PutMapping(path = "{id}")
-//	@CrossOrigin
+	@CrossOrigin
 	public int updatePersonById(@PathVariable("id") Integer id, @Valid @NotNull @RequestBody Person personToUpdate) {
 		return personService.updatePersonById(id, personToUpdate);
 	}
