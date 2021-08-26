@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 //CORS Cross-Origin Port 3000 (React), 4200 (Angular), 8080 (Vue)
@@ -29,7 +27,7 @@ public class PersonController {
 
 	@PostMapping
 	@CrossOrigin
-	public void addPerson(@Valid @NotNull @RequestBody Person person) {
+	public void addPerson( @RequestBody Person person) {
 		personService.addPerson(person);
 	}
 
@@ -53,7 +51,7 @@ public class PersonController {
 
 	@PutMapping(path = "{id}")
 	@CrossOrigin
-	public int updatePersonById(@PathVariable("id") Integer id, @Valid @NotNull @RequestBody Person personToUpdate) {
+	public int updatePersonById(@PathVariable("id") Integer id, @RequestBody Person personToUpdate) {
 		return personService.updatePersonById(id, personToUpdate);
 	}
 }
