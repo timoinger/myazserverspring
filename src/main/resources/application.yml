@@ -10,4 +10,4 @@ spring:
       dialect: org.hibernate.dialect.SQLServer2012Dialect
 
 server:
-  port: 9091
+  port: ${AZDB_PORT}
