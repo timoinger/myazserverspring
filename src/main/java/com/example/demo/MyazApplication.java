@@ -5,10 +5,11 @@ import com.example.demo.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @SpringBootApplication
@@ -27,13 +28,11 @@ public class MyazApplication {
     }
 
     @PostMapping("/people")
-    @CrossOrigin
-    public void addPerson(@Valid @NotNull @RequestBody Person person) {
+    public void addPerson(@RequestBody Person person) {
         personService.addPerson(person);
     }
 
     @GetMapping("/peoples")
-    @CrossOrigin
     public List<Person> getAllPeople() {
         return personService.getAllPeople();
     }
