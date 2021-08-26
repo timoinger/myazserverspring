@@ -4,6 +4,7 @@ import com.example.demo.model.Person;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @SpringBootApplication
 @RestController
+@RequestMapping(value = "/peps")
 public class MyazApplication {
 
 //    private final PersonService personService;
@@ -29,7 +31,7 @@ public class MyazApplication {
 //        personService.addPerson(person);
 //    }
 
-    @GetMapping("/peps")
+    @GetMapping
     public List<Person> getAllPeople() {
         Person p = new Person(0, "ttttest");
         List<Person> list = new ArrayList<Person>();
